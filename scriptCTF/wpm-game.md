@@ -1,4 +1,4 @@
-https://private-user-images.githubusercontent.com/168398753/633276510-a9aeda2a-08df-469a-abb1-4902fe48bf57.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODYyMDE1NDYsIm5iZiI6MTc4NjIwMTI0NiwicGF0aCI6Ii8xNjgzOTg3NTMvNjMzMjc2NTEwLWE5YWVkYTJhLTA4ZGYtNDY5YS1hYmIxLTQ5MDJmZTQ4YmY1Ny5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwODA4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgwOFQxNTAwNDZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03YjFhNzc3NTFkZDY1NjdiODVhNWIzM2M4NTU3ZDViMGQzNTk2ZWY3YjczNmQwYzE4MzRmZjUyODFiOWNhYzAyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.XLbO9wDIIgqiCZeoSUHxJr2QJV9kdCJOzGNtvQkkTT0
+<img width="613" height="682" alt="image" src="https://github.com/user-attachments/assets/a9aeda2a-08df-469a-abb1-4902fe48bf57" />
 
 Mở chall thấy đây là app đo tốc độ gõ phím wpm = words per minute). Người dùng gõ, app chấm điểm tốc độ.
 - View-source / Network tab trong trình duyệt => thấy frontend gọi tới một endpoint để lấy kết quả chấm điểm.
