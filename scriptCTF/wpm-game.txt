@@ -6,12 +6,17 @@ Mở chall thấy đây là app đo tốc độ gõ phím wpm = words per minute
 /rate trả JSON {"verdict":"slow","wpm":49.0} → đây là endpoint duy nhất có logic. Tên rate = "chấm điểm", khớp chủ đề app.
 ta thử /rate?wpm=open
 
+
 chính tỏ eval(wpm) đã chạy, wpm=open được nhét vào eval(open), rồi code rate() gọi open < 50 (so sánh hàm với số) => TypeError. Lỗi này chỉ xảy ra nếu open được thực thi. Nếu không có eval, bạn chỉ nhận JSON invalid wpm như bình thường.
 2. debug=True đang bật — nhờ đó mới hiển thị full traceback và cả source code route (kèm dòng return jsonify(verdict=rate(eval(wpm.lower())), wpm=float(wpm)))
 
 Gửi wpm=check(open):
+<img width="1917" height="950" alt="2" src="https://github.com/user-attachments/assets/52536d4e-dbb7-40fb-8e6b-b592ddbc81ee" />
+
 Khi hàm check nhận tham số không phải là chuỗi, chẳng hạn như số nguyên, chương trình sẽ cố gắng thực thi data.lower(). Vì số nguyên không có phương thức lower(), Python ném ra ngoại lệ AttributeError ngay bên trong hàm check.
 Debugger bắt lỗi này và tự động in ra toàn bộ mã nguồn của hàm check, kèm theo dòng lệnh gây lỗi và giá trị của tham số data. Điều này vô tình làm lộ logic xử lý bên trong ứng dụng, tạo điều kiện cho kẻ tấn công khai thác thêm các lỗ hổng khác.
+
+<img width="1917" height="542" alt="3" src="https://github.com/user-attachments/assets/774a47ed-a503-4d6e-a31c-da2e6d7c80c6" />
 
 Đọc source này ra 3 luật
 1. Blacklist substring: . _ ' " , = ; : ^ / > < { } và từ import, eval, exec, chr, ord, int, str, len, set, app, flask… — nếu payload chứa chuỗi con nào → bị chặn.
@@ -30,3 +35,4 @@ Vì open(next(open( + bytes([ + ]) + + đã tốn 13 ký tự unique, cộng {3,
 Trong URL "+" có nghĩa khoảng trắng nên dán payload thô vào ?wpm= là hỏng. Phải percent-encode lại thành:
 open%28next%28open%28bytes%28%5B47%5D%29%2Bbytes%28%5B3%2B47%2B47%5D%29%2Bbytes%28%5B4%2A4%2A7%5D%29%2Bbytes%28%5B4%2A4%2A7%5D%29%2Bbytes%28%5B47%5D%29%2Bbytes%28%5B3%2A34%5D%29%2Bbytes%28%5B34%2B74%5D%29%2Bbytes%28%5B3%2B47%2B47%5D%29%2Bbytes%28%5B4%2B3%2A33%5D%29%2Bbytes%28%5B3%2B43%5D%29%2Bbytes%28%5B43%2B73%5D%29%2Bbytes%28%5B43%2B77%5D%29%2Bbytes%28%5B43%2B73%5D%29%29%29%29
 Và ra được flag
+<img width="1917" height="961" alt="4" src="https://github.com/user-attachments/assets/1d15625c-b322-4a28-b288-c706c0ac79fd" />
