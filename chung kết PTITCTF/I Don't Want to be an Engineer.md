@@ -100,12 +100,12 @@ done
 
 | Input | Trạng thái | Ghi chú |
 |---|---|---|
-| `'Runtime'` | 🔴 blocked | bị chặn |
-| `'ProcessBuilder'` | 🟢 ok | đi qua được |
-| `'exec'` | 🔴 blocked | bị chặn |
-| `'getRuntime'` | 🔴 blocked | chứa `Runtime` |
-| `'forName'` | 🟢 ok | reflection mở |
-| `'aRuntimeb'` | 🔴 blocked | ⇒ khớp **SUBSTRING**, không phân biệt ngữ cảnh |
+| `'Runtime'` |  blocked | bị chặn |
+| `'ProcessBuilder'` |  ok | đi qua được |
+| `'exec'` |  blocked | bị chặn |
+| `'getRuntime'` |  blocked | chứa `Runtime` |
+| `'forName'` |  ok | reflection mở |
+| `'aRuntimeb'` |  blocked | ⇒ khớp **SUBSTRING**, không phân biệt ngữ cảnh |
 
  `'aRuntimeb'` bị chặn chứng minh guard không so khớp "cả từ" mà quét substring trên toàn bộ chuỗi input — kể cả bên trong string literal. Bị chặn: `Runtime`, `exec`. Không bị chặn: `ProcessBuilder`, `forName`, `Class`, `T()`, `new`.
 
